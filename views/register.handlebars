@@ -1,0 +1,33 @@
+<!--register-->
+<div class="login-page">
+    <h1>Cadastro de Usuário</h1>
+    {{>messages}}
+
+
+    <div class="form">
+        <form action="/users/register" class="login-form" method="POST">
+
+
+            <label for="name" class="labels">Nome Completo:</label>
+            <input type="name" id="name" name="name" class="form-control" placeholder="Jhon Doe Almeida Freitas" />
+
+
+            <label for="email" class="labels">Email:</label>
+            <input type="email" id="email" name="email" class="form-control"
+                placeholder="jhondoenutts@myemail.net.br" />
+
+
+            <label for="password" class="labels">Senha:</label>
+            <input type="password" id="password" name="password" class="form-control" placeholder="************" />
+
+
+            <label for="password2" class="labels">Confirmação de Senha:</label>
+            <input type="password" id="password2" name="password2" class="form-control" placeholder="************" />
+
+            <button type="submit" class="btn btn-primary btn-block">Cadastrar</button>
+        </form>
+
+        <p class="message">Já tem conta? <a href="/users/login">Login</a></p>
+
+    </div>
+</div>
