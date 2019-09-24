@@ -55,17 +55,17 @@ app.use("/", require("./routes/index"));
 app.use("/users", require("./routes/users"));
 
 //MONGO ONLINE
-const db = require("./config/keys").MongoURI;
+/* const db = require("./config/keys").MongoURI;
 mongoose
   .connect(db, { useNewUrlParser: true })
   .then(() => console.log("AtlasDb Connected..."))
   .catch(err => {
     console.log("Falha ao conectar ao AtlasDb");
     console.log(err);
-  });
+  }); */
 
 //MONGOOSE
-/* mongoose.Promise = global.Promise;
+mongoose.Promise = global.Promise;
 mongoose
   .connect("mongodb://localhost/passport", { useNewUrlParser: true })
   .then(() => {
@@ -75,7 +75,10 @@ mongoose
     console.log(
       "houve um problema ao se conectar ao banco de dados, erro: " + erro
     );
-  }); */
+  });
 
 //SERVER
-app.listen(process.env.port || PORT, console.log(`Server started on port ${PORT}`));
+app.listen(
+  process.env.port || PORT,
+  console.log(`Server started on port ${PORT}`)
+);
