@@ -9,11 +9,6 @@ const router = express.Router();
 require("../models/User");
 const User = mongoose.model("users");
 
-//Login Page
-router.get("/login", (req, res) => {
-  res.render("login");
-});
-
 //Register Page
 router.get("/register", (req, res) => {
   res.render("register");
@@ -77,11 +72,8 @@ router.post("/register", (req, res) => {
               newUser
                 .save()
                 .then(userCreated => {
-                  req.flash(
-                    "success_msg",
-                    "Sua conta foi criada e agora você pode logar"
-                  );
-                  res.redirect("/users/login");
+                  req.flash("success_msg", "Conta Criada, acesso liberado");
+                  res.redirect("/dashboard");
                 })
                 .catch(err => {
                   console.log(err);
@@ -102,7 +94,7 @@ router.post("/register", (req, res) => {
 router.post("/login", (req, res, next) => {
   passport.authenticate("local", {
     successRedirect: "/dashboard",
-    failureRedirect: "/users/login",
+    failureRedirect: "/auth/login",
     failureFlash: true
   })(req, res, next);
 });
@@ -111,7 +103,7 @@ router.post("/login", (req, res, next) => {
 router.get("/logout", (req, res) => {
   req.logout();
   req.flash("success_msg", "Você saiu da sua conta");
-  res.redirect("/users/login");
+  res.redirect("/auth/login");
 });
 
 module.exports = router;

@@ -52,7 +52,6 @@ app.use(express.static(path.join(__dirname, "public"))); //fala pra o app que to
 
 //ROUTES
 app.use("/", require("./routes/index"));
-app.use("/users", require("./routes/users"));
 
 //MONGO ONLINE
 /* const db = require("./config/keys").MongoURI;
