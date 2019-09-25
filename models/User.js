@@ -14,13 +14,14 @@ const User = new Schema({
     type: String,
     required: true
   },
-  creationDate: {
+  createdAt: {
     type: Date,
     default: Date.now
   },
-  isAdmin: {
-    type: Boolean,
-    default: false
+  role: {
+    type: String,
+    enum: ["ADMIN", "LOGISTICA"],
+    default: "ADMIN"
   }
 });
 mongoose.model("users", User);
