@@ -4,16 +4,16 @@ const mongoose = require("mongoose");
 const router = express.Router();
 
 //models
-require("../models/Companhia");
-const Companhia = mongoose.model("companhias");
+require("../models/Consultor");
+const Consultor = mongoose.model("consultores");
 
-//Lista de companhias
+//listagem de consultores
 router.get("/", (req, res) => {
-  res.render("companhia/lista-companhias");
+  res.render("consultor/lista-consultores");
 });
-
+//cadastro  de consultores
 router.get("/cadastro", (req, res) => {
-  res.render("companhia/criar-companhia");
+  res.render("consultor/cadastro-consultor");
 });
 
 module.exports = router;

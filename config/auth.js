@@ -3,7 +3,7 @@ module.exports = {
     if (req.isAuthenticated()) {
       return next();
     } else {
-      req.flash("error_msg", "please log in to view this resource");
+      req.flash("error_msg", "Precisa estar logado para acessar este recurso");
       res.redirect("/auth/login");
     }
   }

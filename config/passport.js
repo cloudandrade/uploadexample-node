@@ -14,7 +14,7 @@ module.exports = function(passport) {
         .then(user => {
           if (!user) {
             return done(null, false, {
-              message: "That email is not registered"
+              message: "Esse email não existe em nossos registros"
             });
           }
           //match password
@@ -23,7 +23,7 @@ module.exports = function(passport) {
             if (isMatch) {
               return done(null, user);
             } else {
-              return done(null, false, { message: "password incorrect" });
+              return done(null, false, { message: "Senha incorreta" });
             }
           });
         })

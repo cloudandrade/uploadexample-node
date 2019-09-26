@@ -1,15 +1,23 @@
 const express = require("express");
-const bcrypt = require("bcryptjs");
 const mongoose = require("mongoose");
-const passport = require("passport");
 
 const router = express.Router();
 
 //models
-require("../models/User");
-const User = mongoose.model("users");
+require("../models/Jovem");
+const Jovem = mongoose.model("jovens");
 
-//Login Page
-router.get("/login", (req, res) => {
-  res.render("login");
+//listagem de jovens
+router.get("/", (req, res) => {
+  res.render("jovem/lista-jovens");
 });
+//cadastro de jovens
+router.get("/cadastro", (req, res) => {
+  res.render("jovem/cadastro-jovem");
+});
+
+router.get("/home", (req, res) => {
+  res.render("home2");
+});
+
+module.exports = router;
