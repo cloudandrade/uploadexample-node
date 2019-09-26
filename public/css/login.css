@@ -5,3 +5,11 @@
    width: 600px;
    height: 400px;
  }
+
+.btn-custom {
+  font-size: .8rem;
+  border-radius: 25rem !important;
+  padding: 0.75rem 10rem !important;
+  align-content: center;
+  margin-left: 300px;
+}
