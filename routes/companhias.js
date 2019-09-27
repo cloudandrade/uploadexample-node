@@ -51,10 +51,6 @@ router.post("/cadastro", (req, res) => {
             descricao
           });
 
-          Companhia.count({}, function(err, count) {
-            console.log("Number of docs: ", count);
-          });
-
           novaCompanhia
             .save()
             .then(companhiaCriada => {

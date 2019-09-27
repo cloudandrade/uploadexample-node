@@ -11,13 +11,10 @@ const mongoose = require("mongoose");
 //models
 require("../models/Companhia");
 const Companhia = mongoose.model("companhias");
-
 require("../models/Jovem");
 const Jovem = mongoose.model("jovens");
-
 require("../models/Consultor");
 const Consultor = mongoose.model("consultores");
-
 require("../models/User");
 const Users = mongoose.model("users");
 
@@ -34,11 +31,6 @@ router.get("/dashboard", ensureAuthenticated, async (req, res) => {
   const jovemCount = await Jovem.count({});
   const consultorCount = await Consultor.count({});
   const usersCount = await Users.count({});
-
-  console.log(usersCount);
-  console.log(companhiaCount);
-  console.log(consultorCount);
-  console.log(jovemCount);
 
   res.render("home", {
     name: req.user.name,
