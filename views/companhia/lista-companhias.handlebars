@@ -33,14 +33,12 @@
                     </tr>
                   </thead>
                   <tbody>
+                    {{#each companhias}}
                     <tr>
-                      <td>Exemplo Companhia Leão</td>
-                      <td>Companhia que vai ser o rei </td>
+                      <td>{{nome}}</td>
+                      <td>{{descricao}}</td>
                     </tr>
-                  <tr>
-                      <td>Exemplo Companhia Leão</td>
-                      <td>Companhia que vai ser o rei </td>
-                    </tr>
+                    {{/each}}
                   </tbody>
                 </table>
               </div>

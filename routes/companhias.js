@@ -9,7 +9,16 @@ const Companhia = mongoose.model("companhias");
 
 //Lista de companhias
 router.get("/", (req, res) => {
-  res.render("companhia/lista-companhias");
+   Companhia.find().then(companhias => {
+    res.render("companhia/lista-companhias", {companhias: companhias});
+  }).catch(err => {
+    console.log(err)
+  })
+  
+
+
+  
+  
 });
 
 router.get("/cadastro", (req, res) => {
