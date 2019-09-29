@@ -80,7 +80,6 @@ router.post("/cadastro", (req, res) => {
             console.log(err);
           });
 
-          // console.log(newUser);
         }
       })
       .catch(err => {

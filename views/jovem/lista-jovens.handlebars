@@ -41,17 +41,19 @@
                     </tr>
                   </thead>
                   <tbody>
+                    {{#each jovens}}
                     <tr>
-                      <td>Samara neves da silva de jesus</td>
-                      <td>19</td>
-                      <td>(71)98765-4321</td>
-                      <td>sam.alc@gmail.com</td>
-                      <td>888.999.000-45</td>
-                      <td>111.111.111.111</td>
-                      <td>F</td>
-                      <td>Cabula</td>
-                      <td>Salvador Norte</td>
+                      <td>{{nome}}</td>
+                      <td>{{idade}}</td>
+                      <td>{{telefone}}</td>
+                      <td>{{email}}</td>
+                      <td>{{cpf}}</td>
+                      <td>{{cnis}}</td>
+                      <td>{{sexo}}</td>
+                      <td>{{ala}}</td>
+                      <td>{{estaca}}</td>
                     </tr>
+                    {{/each}}
                   </tbody>
                 </table>
               </div>
