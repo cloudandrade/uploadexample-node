@@ -9,11 +9,86 @@ const Consultor = mongoose.model("consultores");
 
 //listagem de consultores
 router.get("/", (req, res) => {
-  res.render("consultor/lista-consultores");
+  Consultor.find().then(consultores => {
+    res.render("consultor/lista-consultores", {consultores: consultores});
+  }).catch(err => {
+    console.log(err)
+  })
+
 });
+
 //cadastro  de consultores
 router.get("/cadastro", (req, res) => {
   res.render("consultor/cadastro-consultor");
 });
+
+
+//tratativa de cadastro de consultor
+router.post("/cadastro", (req, res) => {
+  const { nome, telefone, sexo, estaca, ala, email } = req.body;
+  let errors = [];
+
+  //check required fields
+  if (!nome || !email || !telefone || !sexo || !estaca || !ala) {
+    errors.push({ msg: "Porfavor preencha todos os campos" });
+  }
+
+  if (errors.length > 0) {
+    res.render("consultor/cadastro-consultor", {
+      errors,
+      nome,
+      email,
+      telefone,
+      sexo,
+      estaca,
+      ala
+    });
+
+  } else {
+    //validation passed
+    Consultor.findOne({ email: email })
+      .then(consultor => {
+        if (consultor) {
+          //user exists
+          errors.push({ msg: "Email já cadastrado" });
+          res.render("register", {
+            errors,
+            nome,
+            email,
+           telefone,
+           sexo,
+           estaca,
+           ala
+          });
+        } else {
+          const novoConsultor = new Consultor({
+            nome,
+            email,
+            telefone,
+            sexo,
+            estaca,
+            ala
+          });
+
+          novoConsultor
+          .save()
+          .then(consultorCreated => {
+            req.flash("success_msg", "Consultor cadastrado");
+            res.redirect("/dashboard");
+          })
+          .catch(err => {
+            console.log(err);
+          });
+
+          // console.log(newUser);
+        }
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }
+});
+
+
 
 module.exports = router;

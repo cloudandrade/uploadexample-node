@@ -32,6 +32,7 @@
                   <thead>
                     <tr>
                       <th>Nome</th>
+                      <th>Email</th>
                       <th>Telefone</th>
                       <th>Sexo</th>
                       <th>Ala</th>
@@ -39,13 +40,16 @@
                     </tr>
                   </thead>
                   <tbody>
+                    {{#each consultores}}
                     <tr>
-                      <td>Jhony Almeida de Alcantara</td>
-                      <td>(71)98765-4321</td>
-                      <td>M</td>
-                      <td>Cabula</td>
-                      <td>Salvador Norte</td>
+                      <td>{{nome}}</td>
+                      <td>{{email}}</td>
+                      <td>{{telefone}}</td>
+                      <td>{{sexo}}</td>
+                      <td>{{ala}}</td>
+                      <td>{{estaca}}</td>
                     </tr>
+                    {{/each}}
                   </tbody>
                 </table>
               </div>

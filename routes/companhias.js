@@ -14,18 +14,14 @@ router.get("/", (req, res) => {
   }).catch(err => {
     console.log(err)
   })
-  
-
-
-  
-  
 });
 
+//cadastro de companhia
 router.get("/cadastro", (req, res) => {
   res.render("companhia/criar-companhia");
 });
 
-//register handle
+//tratativa de cadastro
 router.post("/cadastro", (req, res) => {
   const { nome, descricao } = req.body;
   let errors = [];
@@ -43,11 +39,11 @@ router.post("/cadastro", (req, res) => {
       descricao
     });
   } else {
-    //validation passed
+    //passou na validação
     Companhia.findOne({ nome: nome })
       .then(companhia => {
         if (companhia) {
-          //companhia  exists
+          //companhia existe
           errors.push({ msg: "Já existe um companhia com esse nome" });
           res.render("companhia/criar-companhia", {
             errors,
