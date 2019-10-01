@@ -18,6 +18,22 @@ router.get("/", (req, res) => {
     });
 });
 
+router.get("/estaca", (req, res) => {
+  res.render("jovem/lista-jovens-estaca");
+});
+
+router.post("/estaca", (req, res) => {
+  const { estaca } = req.body;
+
+  Jovem.find({ estaca: estaca })
+    .then(jovens => {
+      res.render("jovem/lista-jovens-estaca", { jovens: jovens });
+    })
+    .catch(err => {
+      console.log(err);
+    });
+});
+
 //cadastro de jovens
 router.get("/cadastro", (req, res) => {
   res.render("jovem/cadastro-jovem");
