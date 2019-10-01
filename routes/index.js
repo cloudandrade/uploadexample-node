@@ -27,10 +27,10 @@ router.use("/dashboard/companhias", companhiaRoutes);
 router.use("/dashboard/consultores", consultorRoutes);
 
 router.get("/dashboard", ensureAuthenticated, async (req, res) => {
-  const companhiaCount = await Companhia.count({});
-  const jovemCount = await Jovem.count({});
-  const consultorCount = await Consultor.count({});
-  const usersCount = await Users.count({});
+  const companhiaCount = await Companhia.countDocuments({});
+  const jovemCount = await Jovem.countDocuments({});
+  const consultorCount = await Consultor.countDocuments({});
+  const usersCount = await Users.countDocuments({});
 
   res.render("home", {
     name: req.user.name,

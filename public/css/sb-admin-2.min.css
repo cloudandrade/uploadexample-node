@@ -20,6 +20,21 @@
      margin-left: 10px;
  }
 
+  .form-ajust20{
+     width: 20% !important;
+     margin-left: 10px;
+ }
+
+   .form-ajust15{
+     width: 15% !important;
+     margin-left: 10px;
+ }
+
+  .form-ajust6{
+     width: 8% !important;
+     margin-left: 10px;
+ }
+
  .select{
      width: 24% !important;
      margin-left: 5px;
@@ -29,4 +44,19 @@
      color: #A9A9A9;
  }
 
+ .datepicker{
+    width: 16% !important;
+     margin-left: 2px;
+     margin-top: 2px;
+     border-radius: 25px;
+     border-color: #D3D3D3;
+     border-style: solid !important;
+     border-width: 1px !important;
+     color: #A9A9A9;
+ }
 
+ .label{
+ margin-top: 15px;
+    margin-left: 3px;
+    margin-right: 2px;
+}

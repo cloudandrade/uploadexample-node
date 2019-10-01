@@ -87,7 +87,7 @@ router.post("/cadastro", (req, res) => {
           .save()
           .then(jovemCreated => {
             req.flash("success_msg", "Jovem cadastrado");
-            res.redirect("/jovem/cadastro-jovem");
+            res.redirect("dashboard/jovens/cadastro");
           })
           .catch(err => {
             console.log(err);

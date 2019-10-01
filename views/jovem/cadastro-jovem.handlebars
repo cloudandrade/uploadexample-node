@@ -35,53 +35,49 @@
               <form action="#" method="POST" class="user">
  
                 <div class="form-group">
-                  <input type="text" name="nome" id="nome" class="form-control form-control-user" placeholder="Nome Completo*">
+                  <div class="row ">
+                  <input type="text" name="nome" id="nome" class="form-control form-ajust30 form-control-user" placeholder="Nome Completo*">
+                
+                  <input type="text" name="email" id="email" class="form-control form-ajust30 form-control-user" placeholder="email*">
+               
+                  <input type="text" name="cpf" id="cpf" class="form-control form-ajust20 form-control-user" placeholder="cpf*">
+                <label class="mt-3 ml-2">Idade*:</label>
+                  <input type="number" name="idade" id="idade" value="18" class="form-control form-ajust6 form-control-user" placeholder="">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <div class="row">
+                   <input type="text" name="cmis" id="cmis" class="form-control form-ajust20 form-control-user" placeholder="cmis">
+               
+                  <label class="label">Dt de Confirmação:</label><br>
+                  <input type="date" class="datepicker" name="dataconfirmacao" id="dataconfirmacao" ><br>
+                
+                  <label class="label">Dt de Nascimento*:</label><br>
+                  <input type="date" class="datepicker" name="datanascimento" id="datanascimento" ><br>
+               
+                  <input type="text" name="telefone" id="telefone" class="form-control form-ajust15 form-control-user" placeholder="Telefone*">
+                  </div>
                 </div>
                 <div class="form-group">
-                  <input type="text" name="email" id="email" class="form-control form-control-user" placeholder="email*">
-                </div>
-                <div class="form-group">
-                  <input type="text" name="cpf" id="cpf" class="form-control form-control-user" placeholder="cpf*">
-                </div>
-                <div class="form-group">
-                  <input type="number" name="idade" id="idade" class="form-control form-control-user" placeholder="idade*">
-                </div>
-                <div class="form-group">
-                  <input type="text" name="cmis" id="cmis" class="form-control form-control-user" placeholder="cmis">
-                </div>
-                <div class="form-group">
-                  <label>Data de Confirmação:</label><br>
-                  <input type="date" name="dataconfirmacao" id="dataconfirmacao" max="2005-12-30"><br>
-                </div>
-                <div class="form-group">
-                  <label>Data de Nascimento*:</label><br>
-                  <input type="date" name="datanascimento" id="datanascimento" max="2005-12-30"><br>
-                </div>
-                <div class="form-group">
-                  <input type="text" name="telefone" id="telefone" class="form-control form-control-user" placeholder="Telefone*">
-                </div>
-                <div form="form-group">
-                  <label>Estaca:*</label>
-                    <select name="estaca" id="estaca">
+                  <div class="row">
+                  <label class="label ml-3 ">Estaca:*</label>
+                    <select class="select" name="estaca" id="estaca">
                         <option value="Estaca Salvador" selected>Estaca Salvador</option>
                         <option value="Estaca Salvador Norte">Estaca Salvador Norte</option>
                         <option value="Estaca Imbuí">Estaca Imbuí</option>
                         <option value="Estaca Liberdade">Estaca Liberdade</option>
                     </select>
-                </div>
-                <div class="form-group ">
+              
                   <div>
-                  <label>Sexo*:</label>
+                  <label class="label">Sexo*:</label>
                   <input type="radio" name="sexo" value="M"> Masculino
                   <input type="radio" name="sexo" value="F"> Feminino
                   </div>
+               
+                  <input type="text" name="ala" id="" class="form-control form-ajust20 form-control-user" placeholder="Ala">
                 </div>
-
-
-                <div class="form-group">
-                  <input type="text" name="ala" id="" class="form-control form-control-user" placeholder="Ala">
-                </div>
-            
+            </div>
             <button type="submit" id="" class=" btn btn-custom  btn-primary ">Cadastrar Jovem</button>
                 
               </form>
