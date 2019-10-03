@@ -9,11 +9,13 @@ const Companhia = mongoose.model("companhias");
 
 //Lista de companhias
 router.get("/", (req, res) => {
-   Companhia.find().then(companhias => {
-    res.render("companhia/lista-companhias", {companhias: companhias});
-  }).catch(err => {
-    console.log(err)
-  })
+  Companhia.find()
+    .then(companhias => {
+      res.render("companhia/lista-companhias", { companhias: companhias });
+    })
+    .catch(err => {
+      console.log(err);
+    });
 });
 
 //cadastro de companhia
@@ -71,6 +73,11 @@ router.post("/cadastro", (req, res) => {
         console.log(err);
       });
   }
+});
+
+//grupos das companhias
+router.get("/grupos", (req, res) => {
+  res.render("companhia/companhia-grupos");
 });
 
 module.exports = router;
