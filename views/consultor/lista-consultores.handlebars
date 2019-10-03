@@ -32,22 +32,22 @@
                   <thead>
                     <tr>
                       <th>Nome</th>
-                      <th>Email</th>
                       <th>Telefone</th>
                       <th>Sexo</th>
                       <th>Ala</th>
                       <th>Estaca</th>
+                      <th>Companhia</th>
                     </tr>
                   </thead>
                   <tbody>
                     {{#each consultores}}
                     <tr>
                       <td>{{nome}}</td>
-                      <td>{{email}}</td>
                       <td>{{telefone}}</td>
                       <td>{{sexo}}</td>
                       <td>{{ala}}</td>
                       <td>{{estaca}}</td>
+                      <td>{{companhia.nome}}</td>
                     </tr>
                     {{/each}}
                   </tbody>

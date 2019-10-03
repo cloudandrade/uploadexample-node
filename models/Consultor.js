@@ -9,10 +9,6 @@ const Consultor = new Schema({
   telefone: {
     type: Number
   },
-  email:{
-    type: String,
-    required: true
-  },
   estaca: {
     type: String,
     required: true
