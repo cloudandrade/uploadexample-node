@@ -7,6 +7,12 @@ const router = express.Router();
 require("../models/Companhia");
 const Companhia = mongoose.model("companhias");
 
+require("../models/Jovem");
+const Jovem = mongoose.model("jovens");
+
+require("../models/Consultor");
+const Consultor = mongoose.model("consultores");
+
 //Lista de companhias
 router.get("/", (req, res) => {
   Companhia.find()
@@ -77,7 +83,25 @@ router.post("/cadastro", (req, res) => {
 
 //grupos das companhias
 router.get("/grupos", (req, res) => {
-  res.render("companhia/companhia-grupos");
+  Companhia.find()
+    .then(companhias => {
+      Consultor.find()
+        /*  .populate("companhia") */
+        .then(consultores => {
+          res.render("companhia/companhia-grupos", {
+            companhias: companhias,
+            consultores: consultores
+          });
+        })
+        .catch(err => {
+          console.log(err);
+          res.redirect("/dashboard");
+        });
+    })
+    .catch(err => {
+      console.log(err);
+      res.redirect("/dashboard");
+    });
 });
 
 module.exports = router;

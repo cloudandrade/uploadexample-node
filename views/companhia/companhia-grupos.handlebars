@@ -27,40 +27,18 @@
               <h4 class="m-0 font-weight-bold text-primary">Companhias</h4>
             </div>
             
-
+{{#each companhias}}
+<div class="card pt-2 pb-2 mt-2 mb-2">
           <!-- DataTales Example -->
-          <div class="card shadow mb-4">
+          <div class="">
             <div class="card-header py-3">
              
-              <h6 class="m-0 font-weight-bold text-primary">companhia nome</h6>
+              <h6 class="m-0 font-weight-bold text-primary">{{nome}}</h6>
             </div>
             <div class="card-body">
              <div class="row mb-2 ml-2">
                 <h5>Consultores</h5>
-              <button class="btn btn-success btn-add-n" data-toggle="modal" data-target="#modalconsultor">Adicionar Consultor</button>
-              </div>
-
-<!---Modal-->
-<div class="modal fade" id="modalconsultor" tabindex="-1" role="dialog" aria-labelledby="modalconsultor" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="modalconsultor">Adicionar Consultor</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        Conteúdo do modal
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-        <button type="button" class="btn btn-primary">Adicionar</button>
-      </div>
-    </div>
-  </div>
-</div>
-<!--End of modal-->
+           
               <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                   <thead>
@@ -71,17 +49,20 @@
                     </tr>
                   </thead>
                   <tbody>
+                  {{#each ../consultores}}
+                  
+                  
                   
                     <tr>
-                      <td>{{nome}}</td>
-                      <td>{{ala}}</td>
-                      <td>{{estaca}}</td>
+                      <td>{{this.nome}}</td>
+                      <td>{{this.ala}}</td>
+                      <td>{{this.estaca}}</td>
                     </tr>
-                    
+                    {{/each}}
                   </tbody>
                   </table>
               </div>
-              <div class="row mb-2 ml-2">
+              <div class="row mb-2 ml-2 ">
                 <h5>Jovens</h5>
               <button class="btn btn-success btn-add" data-toggle="modal" data-target="#modaljovem">Adicionar Jovem</button>
               </div>
@@ -133,8 +114,8 @@
               </div>
             </div>
           </div>
-
-     
+</div>
+     {{/each}}
 
 
 
