@@ -9,14 +9,6 @@ const Jovem = new Schema({
   telefone: {
     type: Number
   },
-  cpf: {
-    type: Number,
-    required: true
-  },
-  email: {
-    type: String,
-    required: true
-  },
   idade: {
     type: Number,
     required: true
@@ -34,13 +26,6 @@ const Jovem = new Schema({
   sexo: {
     type: String,
     enum: ["M", "F"]
-  },
-  datanascimento: {
-    type: Date,
-    required: true
-  },
-  dataconfirmação: {
-    type: Date
   },
   createdAt: {
     type: Date,
