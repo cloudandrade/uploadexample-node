@@ -127,4 +127,27 @@ router.post("/cadastro", (req, res) => {
   }
 });
 
+//rota para edição de  jovem
+router.get("/editar/:id", (req, res) => {
+  Jovem.findOne({ _id: req.params.id })
+    .then(jovem => {
+      Companhia.find()
+        .then(companhias => {
+          res.render("jovem/editar-jovem", {
+            companhias: companhias,
+            jovem: jovem
+          });
+        })
+        .catch(erro => {
+          console.log(erro);
+          res.redirect("/dashboard");
+        });
+    })
+    .catch(erro => {
+      req.flash("error_msg", "Houve um erro ao carregar formulário de edição");
+      console.log("Erro de busca em editar categoria: console: " + erro);
+      res.redirect("/admin/postagens");
+    });
+});
+
 module.exports = router;
