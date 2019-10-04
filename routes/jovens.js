@@ -7,9 +7,13 @@ const router = express.Router();
 require("../models/Jovem");
 const Jovem = mongoose.model("jovens");
 
+require("../models/Companhia");
+const Companhia = mongoose.model("companhias");
+
 //listagem de jovens
 router.get("/", (req, res) => {
   Jovem.find()
+    .populate("companhia")
     .then(jovens => {
       res.render("jovem/lista-jovens", { jovens: jovens });
     })
@@ -36,12 +40,28 @@ router.post("/estaca", (req, res) => {
 
 //cadastro de jovens
 router.get("/cadastro", (req, res) => {
-  res.render("jovem/cadastro-jovem");
+  Companhia.find()
+    .then(companhias => {
+      res.render("jovem/cadastro-jovem", { companhias: companhias });
+    })
+    .catch(error => {
+      console.log(erro);
+      res.redirect("/dashboard");
+    });
 });
 
 //tratativa de cadastro de jovem
 router.post("/cadastro", (req, res) => {
-  const { nome, telefone, sexo, estaca, ala, cmis, idade } = req.body;
+  const {
+    nome,
+    telefone,
+    sexo,
+    estaca,
+    ala,
+    cmis,
+    idade,
+    companhia
+  } = req.body;
   let errors = [];
 
   //check required fields
@@ -71,6 +91,7 @@ router.post("/cadastro", (req, res) => {
             errors,
             nome,
             telefone,
+            companhia,
             idade,
             sexo,
             cmis,
@@ -81,6 +102,7 @@ router.post("/cadastro", (req, res) => {
           const novoJovem = new Jovem({
             nome,
             telefone,
+            companhia,
             idade,
             sexo,
             cmis,

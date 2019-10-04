@@ -63,3 +63,16 @@
 .btn-add-n{
     margin-left: 75%
 }
+
+.btn-edit{
+    width:  30px;
+    height:  25px;
+    border-radius: .35rem;
+   margin-left: 15px;
+ 
+   vertical-align: middle;
+   text-align: center;
+   display: inline-block;
+   padding: .375rem .45rem;
+   cursor: pointer;
+}

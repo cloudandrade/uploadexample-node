@@ -36,7 +36,7 @@
                       <th>CMIS</th>
                       <th>Ala</th>
                       <th>Estaca</th>
-                      <th>C</th>
+                      <th>Comp</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -49,7 +49,15 @@
                       <td>{{cmis}}</td>
                       <td>{{ala}}</td>
                       <td>{{estaca}}</td>
-                      <td>{{companhia}}</td>
+                      
+                      <td >
+                        <div class="d-flex flex-row-reverse">
+                          <i class="fa fa-edit btn-edit btn-warning "></i>
+                
+                        {{companhia.nome}}
+                        
+                        </div>
+                      </td>
                     </tr>
                     {{/each}}
                   </tbody>
